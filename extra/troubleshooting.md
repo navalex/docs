@@ -22,6 +22,14 @@ If the `app` container cannot start and display this `Error starting userland pr
 
 You can change the port to be used in the `docker-compose.yml` file (default is port 80).
 
+### Error for react watcher for admin/client not working on Windows 10
+
+While using API-Platform with Docker for Windows, you'll probably have an issue with ReactJS file Watcher, which is not working by default due to an issue with the VM. To fix it, just add this to the container .env file, related to the ReactJS Troobleshooting doc:
+
+    CHOKIDAR_USEPOLLING=true
+
+Then restart the container and all should work now.
+
 ## Using API Platform and JMS Serializer in the same project
 
 For the latest versions of [JMSSerializerBundle](http://jmsyst.com/bundles/JMSSerializerBundle), there is no conflict so everything should work out of the box.
